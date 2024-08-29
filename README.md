@@ -19,5 +19,8 @@ To learn more, read the [user guide](https://docs.pola.rs/) and [Data Camp intro
 
 
 ## Polars: Champions League fun project 
+![download](https://github.com/user-attachments/assets/bef70db7-d093-4580-8a13-d6c3ac48f444)
+
+
 
 
