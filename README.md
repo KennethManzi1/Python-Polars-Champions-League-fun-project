@@ -22,15 +22,34 @@ To learn more, read the [user guide](https://docs.pola.rs/) and [Data Camp intro
 ## Polars: Champions League fun project 
 ![download](https://github.com/user-attachments/assets/bef70db7-d093-4580-8a13-d6c3ac48f444)
 
-- Installing Polars
+**Installing Polars**
 ```Python
 !pip install Polars
 !pip install pyarrow
 ```
 
 
-- Champions League Top Performing Players Data
+**Champions League Top Performing Players Data**
+```Python
+import polars as pl
 
+ChampionsLeague_Top_players = pl.DataFrame(
+    {
+        "Ranking": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        "Player": ['Salah', 'Haaland', 'Mbappe', 'Bellingham', 'Saka', 'Vinicius JR', 
+                   "Valverde", "Van Dijk", "Kevin De Bruyne", "Trent", "Yamal"],
+        "Club Name": ['Liverpool', 'Manchester City', 'Paris Saint-Germain', 'Real Madrid', 
+                      'Arsenal', 'Real Madrid', 'Real Madrid', 'Liverpool', 'Manchester City', 
+                      'Liverpool', 'Barcelona'],
+        "Goals": [10, 15, 12, 7, 9, 11, 8, 3, 5, 2, 6],
+        "Assists": [7, 4, 6, 8, 5, 7, 6, 2, 10, 4, 3],
+        "Appearances": [12, 11, 13, 12, 11, 12, 11, 10, 13, 11, 10]
+    }
+)
+
+# Show the DataFrame
+print(ChampionsLeague_Top_players)
+```
 
 
 
