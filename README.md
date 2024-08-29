@@ -17,6 +17,7 @@ Polars is a robust Python library for high-performance data manipulation and ana
 
 To learn more, read the [user guide](https://docs.pola.rs/) and [Data Camp introduction to Polars](https://www.datacamp.com/blog/an-introduction-to-polars-python-s-tool-for-large-scale-data-analysis)
 
+***
 
 ## Polars: Champions League fun project 
 ![download](https://github.com/user-attachments/assets/bef70db7-d093-4580-8a13-d6c3ac48f444)
