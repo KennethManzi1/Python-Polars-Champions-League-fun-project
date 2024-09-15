@@ -102,7 +102,7 @@ shape: (2, 46)
 │ 24     ┆ Henderson  ┆ Liverpool ┆ Midfielder ┆ … ┆ 1        ┆ 0          ┆ 0         ┆ 1         │
 
 ```
--Looks like the join only got very few matched results because the player name field is pretty dirty. Will take work to clean up the strings so let's look into key champions league stats for now
+- Looks like the join only got very few matched results because the player name field is pretty dirty. Will take work to clean up the strings so let's look into key champions league stats for now
 
 
 
