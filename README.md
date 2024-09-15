@@ -29,80 +29,80 @@ To learn more, read the [user guide](https://docs.pola.rs/) and [Data Camp intro
 ```
 
 
-**Champions League Top Performing Players Data**
+**Champions League Top Performing Players in 2022 Data**
 ```Python
 import polars as pl
 
-ChampionsLeague_Top_players = pl.DataFrame(
-    {
-        "Ranking": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-        "Player": ['Salah', 'Haaland', 'Mbappe', 'Bellingham', 'Saka', 'Vinicius JR', 
-                   "Valverde", "Van Dijk", "Kevin De Bruyne", "Trent", "Yamal"],
-        "Club Name": ['Liverpool', 'Manchester City', 'Paris Saint-Germain', 'Real Madrid', 
-                      'Arsenal', 'Real Madrid', 'Real Madrid', 'Liverpool', 'Manchester City', 
-                      'Liverpool', 'Barcelona'],
-        "Goals": [10, 15, 12, 7, 9, 11, 8, 3, 5, 2, 6],
-        "Assists": [7, 4, 6, 8, 5, 7, 6, 2, 10, 4, 3],
-        "Appearances": [12, 11, 13, 12, 11, 12, 11, 10, 13, 11, 10]
-    }
-)
+##Getting Data of Champions League Players 2021-2022
 
-# Show the DataFrame
-print(ChampionsLeague_Top_players)
-shape: (11, 6)
-┌─────────┬─────────────────┬─────────────────────┬───────┬─────────┬─────────────┐
-│ Ranking ┆ Player          ┆ Club Name           ┆ Goals ┆ Assists ┆ Appearances │
-│ ---     ┆ ---             ┆ ---                 ┆ ---   ┆ ---     ┆ ---         │
-│ i64     ┆ str             ┆ str                 ┆ i64   ┆ i64     ┆ i64         │
-╞═════════╪═════════════════╪═════════════════════╪═══════╪═════════╪═════════════╡
-│ 1       ┆ Salah           ┆ Liverpool           ┆ 10    ┆ 7       ┆ 12          │
-│ 2       ┆ Haaland         ┆ Manchester City     ┆ 15    ┆ 4       ┆ 11          │
-│ 3       ┆ Mbappe          ┆ Paris Saint-Germain ┆ 12    ┆ 6       ┆ 13          │
-│ 4       ┆ Bellingham      ┆ Real Madrid         ┆ 7     ┆ 8       ┆ 12          │
-│ 5       ┆ Saka            ┆ Arsenal             ┆ 9     ┆ 5       ┆ 11          │
-│ …       ┆ …               ┆ …                   ┆ …     ┆ …       ┆ …           │
-│ 7       ┆ Valverde        ┆ Real Madrid         ┆ 8     ┆ 6       ┆ 11          │
-│ 8       ┆ Van Dijk        ┆ Liverpool           ┆ 3     ┆ 2       ┆ 10          │
-│ 9       ┆ Kevin De Bruyne ┆ Manchester City     ┆ 5     ┆ 10      ┆ 13          │
-│ 10      ┆ Trent           ┆ Liverpool           ┆ 2     ┆ 4       ┆ 11          │
-│ 11      ┆ Yamal           ┆ Barcelona           ┆ 6     ┆ 3       ┆ 10          │
+# List of file paths for CSVs
+csv_files_champions_league_2022 = ['/Users/kennykaijage/Library/Mobile Documents/com~apple~CloudDocs/Desktop/Datasets/Datasets_for_projects/attacking.csv', '/Users/kennykaijage/Library/Mobile Documents/com~apple~CloudDocs/Desktop/Datasets/Datasets_for_projects/disciplinary.csv', '/Users/kennykaijage/Library/Mobile Documents/com~apple~CloudDocs/Desktop/Datasets/Datasets_for_projects/distributon.csv', 
+                                   '/Users/kennykaijage/Library/Mobile Documents/com~apple~CloudDocs/Desktop/Datasets/Datasets_for_projects/key_stats.csv', '/Users/kennykaijage/Library/Mobile Documents/com~apple~CloudDocs/Desktop/Datasets/Datasets_for_projects/goals.csv', 
+                                   '/Users/kennykaijage/Library/Mobile Documents/com~apple~CloudDocs/Desktop/Datasets/Datasets_for_projects/defending.csv','/Users/kennykaijage/Library/Mobile Documents/com~apple~CloudDocs/Desktop/Datasets/Datasets_for_projects/goalkeeping.csv']
+
+
+#test it out by reading the first file which is the attacking csv file
+
+combined_df = pl.read_csv(csv_files_champions_league_2022[0], encoding='ISO-8859-1', infer_schema_length=10000, ignore_errors=True )
+
+print(combined_df)
+
+shape: (176, 5)
+┌────────┬────────────┬────────────┬────────────┬───┬────────────┬──────────┬──────────┬───────────┐
+│ serial ┆ player_nam ┆ club       ┆ position   ┆ … ┆ corner_tak ┆ offsides ┆ dribbles ┆ match_pla │
+│ ---    ┆ e          ┆ ---        ┆ ---        ┆   ┆ en         ┆ ---      ┆ ---      ┆ yed       │
+│ i64    ┆ ---        ┆ str        ┆ str        ┆   ┆ ---        ┆ i64      ┆ i64      ┆ ---       │
+│        ┆ str        ┆            ┆            ┆   ┆ i64        ┆          ┆          ┆ i64       │
+╞════════╪════════════╪════════════╪════════════╪═══╪════════════╪══════════╪══════════╪═══════════╡
+│ 1      ┆ Bruno      ┆ Man.       ┆ Midfielder ┆ … ┆ 10         ┆ 2        ┆ 7        ┆ 7         │
+│        ┆ Fernandes  ┆ United     ┆            ┆   ┆            ┆          ┆          ┆           │
+│ 2      ┆ VinÃ­cius   ┆ Real       ┆ Forward    ┆ … ┆ 3          ┆ 4        ┆ 83       ┆ 13        │
+│        ┆ JÃºnior    ┆ Madrid     ┆            ┆   ┆            ┆          ┆          ┆           │
+│ 2      ┆ SanÃ©      ┆ Bayern     ┆ Midfielder ┆ … ┆ 3          ┆ 3        ┆ 32       ┆ 10        │
+│ 4      ┆ Antony     ┆ Ajax       ┆ Forward    ┆ … ┆ 3          ┆ 4        ┆ 28       ┆ 7         │
+│ 5      ┆ Alexander- ┆ Liverpool  ┆ Defender   ┆ … ┆ 36         ┆ 0        ┆ 9        ┆ 9         │
+│        ┆ Arnold     ┆            ┆            ┆   ┆            ┆          ┆          ┆           │
+│ …      ┆ …          ┆ …          ┆ …          ┆ … ┆ …          ┆ …        ┆ …        ┆ …         │
+│ 64     ┆ Tolisso    ┆ Bayern     ┆ Midfielder ┆ … ┆ 0          ┆ 0        ┆ 0        ┆ 4         │
+│ 64     ┆ Schuurs    ┆ Ajax       ┆ Defender   ┆ … ┆ 0          ┆ 0        ┆ 0        ┆ 3         │
+│ 64     ┆ Kryvtsov   ┆ Shakhtar   ┆ Defender   ┆ … ┆ 0          ┆ 0        ┆ 0        ┆ 3         │
+│        ┆            ┆ Donetsk    ┆            ┆   ┆            ┆          ┆          ┆           │
+│ 64     ┆ StaniÅ¡iÄ ┆ Bayern     ┆ Defender   ┆ … ┆ 0          ┆ 0        ┆ 0        ┆ 2         │
+│ 64     ┆ Bernardo   ┆ Salzburg   ┆ Defender   ┆ … ┆ 0          ┆ 0        ┆ 0        ┆ 2         │
+└────────┴────────────┴────────────┴────────────┴───┴────────────┴──────────┴──────────┴───────────┘
+
 ```
 
-**Champions League Top Performing Players based on Key statistics**
+**Now we will loop through the champions league 2022 files and join them using the player name**
 
 ```Python
-#Adding Additional Columns
-ChampionsLeague_Top_players = ChampionsLeague_Top_players.with_columns([
-    pl.Series("Minutes Played", [1080, 990, 1170, 1140, 1020, 1110, 1090, 930, 1260, 1020, 900]),
-    pl.Series("Pass Accuracy", [84, 76, 89, 91, 78, 87, 86, 92, 88, 83, 81]),  # in percentage
-    pl.Series("Tackles", [15, 6, 9, 4, 12, 8, 18, 22, 5, 24, 10]),
-    pl.Series("Yellow Cards", [2, 1, 3, 0, 1, 2, 1, 3, 2, 1, 1]),
-    pl.Series("Red Cards", [0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0])
-])
+CL_22 = []
 
-print(ChampionsLeague_Top_players)
+for cl_file in csv_files_champions_league_2022:
+    cl_df = pl.read_csv(cl_file, encoding='ISO-8859-1', infer_schema_length=10000, ignore_errors=True )
+    CL_22.append(cl_df)
 
-shape: (11, 11)
-┌─────────┬────────────┬─────────────────────┬───────┬───┬──────────┬─────────┬────────┬───────────┐
-│ Ranking ┆ Player     ┆ Club Name           ┆ Goals ┆ … ┆ Pass     ┆ Tackles ┆ Yellow ┆ Red Cards │
-│ ---     ┆ ---        ┆ ---                 ┆ ---   ┆   ┆ Accuracy ┆ ---     ┆ Cards  ┆ ---       │
-│ i64     ┆ str        ┆ str                 ┆ i64   ┆   ┆ ---      ┆ i64     ┆ ---    ┆ i64       │
-│         ┆            ┆                     ┆       ┆   ┆ i64      ┆         ┆ i64    ┆           │
-╞═════════╪════════════╪═════════════════════╪═══════╪═══╪══════════╪═════════╪════════╪═══════════╡
-│ 1       ┆ Salah      ┆ Liverpool           ┆ 10    ┆ … ┆ 84       ┆ 15      ┆ 2      ┆ 0         │
-│ 2       ┆ Haaland    ┆ Manchester City     ┆ 15    ┆ … ┆ 76       ┆ 6       ┆ 1      ┆ 0         │
-│ 3       ┆ Mbappe     ┆ Paris Saint-Germain ┆ 12    ┆ … ┆ 89       ┆ 9       ┆ 3      ┆ 0         │
-│ 4       ┆ Bellingham ┆ Real Madrid         ┆ 7     ┆ … ┆ 91       ┆ 4       ┆ 0      ┆ 0         │
-│ 5       ┆ Saka       ┆ Arsenal             ┆ 9     ┆ … ┆ 78       ┆ 12      ┆ 1      ┆ 0         │
-│ …       ┆ …          ┆ …                   ┆ …     ┆ … ┆ …        ┆ …       ┆ …      ┆ …         │
-│ 7       ┆ Valverde   ┆ Real Madrid         ┆ 8     ┆ … ┆ 86       ┆ 18      ┆ 1      ┆ 0         │
-│ 8       ┆ Van Dijk   ┆ Liverpool           ┆ 3     ┆ … ┆ 92       ┆ 22      ┆ 3      ┆ 1         │
-│ 9       ┆ Kevin De   ┆ Manchester City     ┆ 5     ┆ … ┆ 88       ┆ 5       ┆ 2      ┆ 0         │
-│         ┆ Bruyne     ┆                     ┆       ┆   ┆          ┆         ┆        ┆           │
-│ 10      ┆ Trent      ┆ Liverpool           ┆ 2     ┆ … ┆ 83       ┆ 24      ┆ 1      ┆ 0         │
-│ 11      ┆ Yamal      ┆ Barcelona           ┆ 6     ┆ … ┆ 81       ┆ 10      ┆ 1      ┆ 0         │
+##print(CL_22)
+
+# Merge all DataFrames by performing a join on the common column
+Champions_League2022 = CL_22[0]
+for df in CL_22[1:]:
+    Champions_League2022  = Champions_League2022.join(df, on='player_name', how='inner')
+
+print(Champions_League2022)
+
+shape: (2, 46)
+┌────────┬────────────┬───────────┬────────────┬───┬──────────┬────────────┬───────────┬───────────┐
+│ serial ┆ player_nam ┆ club      ┆ position   ┆ … ┆ conceded ┆ saved_pena ┆ cleanshee ┆ punches   │
+│ ---    ┆ e          ┆ ---       ┆ ---        ┆   ┆ ---      ┆ lties      ┆ ts        ┆ made      │
+│ i64    ┆ ---        ┆ str       ┆ str        ┆   ┆ i64      ┆ ---        ┆ ---       ┆ ---       │
+│        ┆ str        ┆           ┆            ┆   ┆          ┆ i64        ┆ i64       ┆ i64       │
+╞════════╪════════════╪═══════════╪════════════╪═══╪══════════╪════════════╪═══════════╪═══════════╡
+│ 24     ┆ Henderson  ┆ Liverpool ┆ Midfielder ┆ … ┆ 1        ┆ 0          ┆ 0         ┆ 1         │
+│ 24     ┆ Henderson  ┆ Liverpool ┆ Midfielder ┆ … ┆ 1        ┆ 0          ┆ 0         ┆ 1         │
+
 ```
-
+-Looks like the join only got very few matched results because the player name field is pretty dirty. Will take work to clean up the strings so let's look into key champions league stats for now
 
 
 
