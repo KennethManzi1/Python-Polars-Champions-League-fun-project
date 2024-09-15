@@ -133,9 +133,9 @@ shape: (747, 8)
 ```
 
 
-**SQL TIME IN POLARS YAYYY**
+### SQL TIME IN POLARS YAYYY
 
-# SQL QUERY Test
+**SQL QUERY Test**
 ```Python
 result = pl.sql("""
     SELECT "*"
