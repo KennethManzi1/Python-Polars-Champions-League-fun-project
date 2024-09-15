@@ -68,7 +68,40 @@ shape: (11, 6)
 │ 11      ┆ Yamal           ┆ Barcelona           ┆ 6     ┆ 3       ┆ 10          │
 ```
 
+**Champions League Top Performing Players based on Key statistics**
 
+```Python
+#Adding Additional Columns
+ChampionsLeague_Top_players = ChampionsLeague_Top_players.with_columns([
+    pl.Series("Minutes Played", [1080, 990, 1170, 1140, 1020, 1110, 1090, 930, 1260, 1020, 900]),
+    pl.Series("Pass Accuracy", [84, 76, 89, 91, 78, 87, 86, 92, 88, 83, 81]),  # in percentage
+    pl.Series("Tackles", [15, 6, 9, 4, 12, 8, 18, 22, 5, 24, 10]),
+    pl.Series("Yellow Cards", [2, 1, 3, 0, 1, 2, 1, 3, 2, 1, 1]),
+    pl.Series("Red Cards", [0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0])
+])
+
+print(ChampionsLeague_Top_players)
+
+shape: (11, 11)
+┌─────────┬────────────┬─────────────────────┬───────┬───┬──────────┬─────────┬────────┬───────────┐
+│ Ranking ┆ Player     ┆ Club Name           ┆ Goals ┆ … ┆ Pass     ┆ Tackles ┆ Yellow ┆ Red Cards │
+│ ---     ┆ ---        ┆ ---                 ┆ ---   ┆   ┆ Accuracy ┆ ---     ┆ Cards  ┆ ---       │
+│ i64     ┆ str        ┆ str                 ┆ i64   ┆   ┆ ---      ┆ i64     ┆ ---    ┆ i64       │
+│         ┆            ┆                     ┆       ┆   ┆ i64      ┆         ┆ i64    ┆           │
+╞═════════╪════════════╪═════════════════════╪═══════╪═══╪══════════╪═════════╪════════╪═══════════╡
+│ 1       ┆ Salah      ┆ Liverpool           ┆ 10    ┆ … ┆ 84       ┆ 15      ┆ 2      ┆ 0         │
+│ 2       ┆ Haaland    ┆ Manchester City     ┆ 15    ┆ … ┆ 76       ┆ 6       ┆ 1      ┆ 0         │
+│ 3       ┆ Mbappe     ┆ Paris Saint-Germain ┆ 12    ┆ … ┆ 89       ┆ 9       ┆ 3      ┆ 0         │
+│ 4       ┆ Bellingham ┆ Real Madrid         ┆ 7     ┆ … ┆ 91       ┆ 4       ┆ 0      ┆ 0         │
+│ 5       ┆ Saka       ┆ Arsenal             ┆ 9     ┆ … ┆ 78       ┆ 12      ┆ 1      ┆ 0         │
+│ …       ┆ …          ┆ …                   ┆ …     ┆ … ┆ …        ┆ …       ┆ …      ┆ …         │
+│ 7       ┆ Valverde   ┆ Real Madrid         ┆ 8     ┆ … ┆ 86       ┆ 18      ┆ 1      ┆ 0         │
+│ 8       ┆ Van Dijk   ┆ Liverpool           ┆ 3     ┆ … ┆ 92       ┆ 22      ┆ 3      ┆ 1         │
+│ 9       ┆ Kevin De   ┆ Manchester City     ┆ 5     ┆ … ┆ 88       ┆ 5       ┆ 2      ┆ 0         │
+│         ┆ Bruyne     ┆                     ┆       ┆   ┆          ┆         ┆        ┆           │
+│ 10      ┆ Trent      ┆ Liverpool           ┆ 2     ┆ … ┆ 83       ┆ 24      ┆ 1      ┆ 0         │
+│ 11      ┆ Yamal      ┆ Barcelona           ┆ 6     ┆ … ┆ 81       ┆ 10      ┆ 1      ┆ 0         │
+```
 
 
 
