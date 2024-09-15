@@ -168,7 +168,8 @@ shape: (747, 8)
 │ Zesiger     ┆ Young Boys  ┆ Defender   ┆ 1           ┆ 1          ┆ 0     ┆ 0       ┆ 0          │
 └─────────────┴─────────────┴────────────┴─────────────┴────────────┴───────┴─────────┴────────────┘
 ```
-
+- Wow Benzema was on fire that season in terms of goals. It's no wonder he won the Balon Dor that year. He had big performances against Chelsea in the Quarter final and Manchester City in the Semis.
+- Lewandowski was pretty good for Bayern as well as well as Haller from Ajax
 
 **Club Statistics Goals and Assists**
 ```Python
