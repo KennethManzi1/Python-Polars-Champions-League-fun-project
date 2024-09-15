@@ -87,7 +87,7 @@ for cl_file in csv_files_champions_league_2022:
 # Merge all DataFrames by performing a join on the common column
 Champions_League2022 = CL_22[0]
 for df in CL_22[1:]:
-    Champions_League2022  = Champions_League2022.join(df, on='player_name', how='inner')
+    Champions_League2022 = Champions_League2022.join(df, on='player_name', how='inner')
 
 print(Champions_League2022)
 
@@ -103,6 +103,34 @@ shape: (2, 46)
 
 ```
 - Looks like the join only got very few matched results because the player name field is pretty dirty. Will take work to clean up the strings so let's look into key champions league stats for now
+
+**Champions League top stats**
+```Python
+Champions_League_2022_top_stats = pl.read_csv(csv_files_champions_league_2022[3], encoding='ISO-8859-1', infer_schema_length=10000, ignore_errors=True )
+print(Champions_League_2022_top_stats)
+
+shape: (747, 8)
+┌─────────────┬─────────────┬────────────┬─────────────┬────────────┬───────┬─────────┬────────────┐
+│ player_name ┆ club        ┆ position   ┆ minutes_pla ┆ match_play ┆ goals ┆ assists ┆ distance_c │
+│ ---         ┆ ---         ┆ ---        ┆ yed         ┆ ed         ┆ ---   ┆ ---     ┆ overed     │
+│ str         ┆ str         ┆ str        ┆ ---         ┆ ---        ┆ i64   ┆ i64     ┆ ---        │
+│             ┆             ┆            ┆ i64         ┆ i64        ┆       ┆         ┆ str        │
+╞═════════════╪═════════════╪════════════╪═════════════╪════════════╪═══════╪═════════╪════════════╡
+│ Courtois    ┆ Real Madrid ┆ Goalkeeper ┆ 1230        ┆ 13         ┆ 0     ┆ 0       ┆ 64.2       │
+│ Vinicius    ┆ Real Madrid ┆ Forward    ┆ 1199        ┆ 13         ┆ 4     ┆ 6       ┆ 133        │
+│ Junior      ┆             ┆            ┆             ┆            ┆       ┆         ┆            │
+│ Benzema     ┆ Real Madrid ┆ Forward    ┆ 1106        ┆ 12         ┆ 15    ┆ 1       ┆ 121.5      │
+│ ModriÛ     ┆ Real Madrid ┆ Midfielder ┆ 1077        ┆ 13         ┆ 0     ┆ 4       ┆ 124.5      │
+│ íder       ┆ Real Madrid ┆ Defender   ┆ 1076        ┆ 12         ┆ 0     ┆ 0       ┆ 110.4      │
+│ Milití£o    ┆             ┆            ┆             ┆            ┆       ┆         ┆            │
+│ …           ┆ …           ┆ …          ┆ …           ┆ …          ┆ …     ┆ …       ┆ …          │
+│ Gil Dias    ┆ Benfica     ┆ Midfielder ┆ 1           ┆ 1          ┆ 0     ┆ 0       ┆ 0.7        │
+│ Rodrigo     ┆ Sporting CP ┆ Forward    ┆ 1           ┆ 1          ┆ 0     ┆ 0       ┆ 0.7        │
+│ Ribeiro     ┆             ┆            ┆             ┆            ┆       ┆         ┆            │
+│ Cojocari    ┆ Sheriff     ┆ Defender   ┆ 1           ┆ 1          ┆ 0     ┆ 0       ┆ 0.5        │
+│ Maouassa    ┆ Club Brugge ┆ Defender   ┆ 1           ┆ 1          ┆ 0     ┆ 0       ┆ 0.2        │
+│ Zesiger     ┆ Young Boys  ┆ Defender   ┆ 1           ┆ 1          ┆ 0     ┆ 0       ┆ 0          │
+```
 
 
 
