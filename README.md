@@ -49,6 +49,23 @@ ChampionsLeague_Top_players = pl.DataFrame(
 
 # Show the DataFrame
 print(ChampionsLeague_Top_players)
+shape: (11, 6)
+┌─────────┬─────────────────┬─────────────────────┬───────┬─────────┬─────────────┐
+│ Ranking ┆ Player          ┆ Club Name           ┆ Goals ┆ Assists ┆ Appearances │
+│ ---     ┆ ---             ┆ ---                 ┆ ---   ┆ ---     ┆ ---         │
+│ i64     ┆ str             ┆ str                 ┆ i64   ┆ i64     ┆ i64         │
+╞═════════╪═════════════════╪═════════════════════╪═══════╪═════════╪═════════════╡
+│ 1       ┆ Salah           ┆ Liverpool           ┆ 10    ┆ 7       ┆ 12          │
+│ 2       ┆ Haaland         ┆ Manchester City     ┆ 15    ┆ 4       ┆ 11          │
+│ 3       ┆ Mbappe          ┆ Paris Saint-Germain ┆ 12    ┆ 6       ┆ 13          │
+│ 4       ┆ Bellingham      ┆ Real Madrid         ┆ 7     ┆ 8       ┆ 12          │
+│ 5       ┆ Saka            ┆ Arsenal             ┆ 9     ┆ 5       ┆ 11          │
+│ …       ┆ …               ┆ …                   ┆ …     ┆ …       ┆ …           │
+│ 7       ┆ Valverde        ┆ Real Madrid         ┆ 8     ┆ 6       ┆ 11          │
+│ 8       ┆ Van Dijk        ┆ Liverpool           ┆ 3     ┆ 2       ┆ 10          │
+│ 9       ┆ Kevin De Bruyne ┆ Manchester City     ┆ 5     ┆ 10      ┆ 13          │
+│ 10      ┆ Trent           ┆ Liverpool           ┆ 2     ┆ 4       ┆ 11          │
+│ 11      ┆ Yamal           ┆ Barcelona           ┆ 6     ┆ 3       ┆ 10          │
 ```
 
 
