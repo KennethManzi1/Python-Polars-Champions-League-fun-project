@@ -263,5 +263,5 @@ shape: (32, 4)
 
 - [user guide](https://docs.pola.rs/)
 - [Data Camp introduction to Polars](https://www.datacamp.com/blog/an-introduction-to-polars-python-s-tool-for-large-scale-data-analysis)
-- [Location of the CSV files](https://www.kaggle.com/code/alisultanov/eda-champions-league-21-22/input?select=defending.csv)
+- The link to the CSV files can be found [here](https://www.kaggle.com/code/alisultanov/eda-champions-league-21-22/input?select=defending.csv)
 
