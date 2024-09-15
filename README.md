@@ -170,4 +170,41 @@ shape: (747, 8)
 ```
 
 
+**Club Statistics Goals and Assists**
+```Python
+##SQL QUERY Club Stats
+result = pl.sql("""
+    SELECT "player_name",
+    "club", 
+    SUM(goals) AS Total_Goals,
+    SUM(assists) AS Total_Assists,
+    SUM(goals + assists) AS G_A
+    FROM Champions_League_2022_top_stats
+    GROUP BY "player_name", "club"
+    ORDER BY G_A DESC
+""").collect()
+
+Club_stats = result
+print(Club_stats)
+
+┌─────────────┬─────────────┬─────────────┬───────────────┬─────┐
+│ player_name ┆ club        ┆ Total_Goals ┆ Total_Assists ┆ G_A │
+│ ---         ┆ ---         ┆ ---         ┆ ---           ┆ --- │
+│ str         ┆ str         ┆ i64         ┆ i64           ┆ i64 │
+╞═════════════╪═════════════╪═════════════╪═══════════════╪═════╡
+│ Benzema     ┆ Real Madrid ┆ 15          ┆ 1             ┆ 16  │
+│ Lewandowski ┆ Bayern      ┆ 13          ┆ 3             ┆ 16  │
+│ Haller      ┆ Ajax        ┆ 11          ┆ 1             ┆ 12  │
+│ Saní©       ┆ Bayern      ┆ 6           ┆ 6             ┆ 12  │
+│ Salah       ┆ Liverpool   ┆ 8           ┆ 2             ┆ 10  │
+│ …           ┆ …           ┆ …           ┆ …             ┆ …   │
+│ Meraô      ┆ Beôiktaô  ┆ 0           ┆ 0             ┆ 0   │
+│ Trippier    ┆ Atlí©tico   ┆ 0           ┆ 0             ┆ 0   │
+│ Mbemba      ┆ Porto       ┆ 0           ┆ 0             ┆ 0   │
+│ Batshuayi   ┆ Beôiktaô  ┆ 0           ┆ 0             ┆ 0   │
+│ Taarabt     ┆ Benfica     ┆ 0           ┆ 0             ┆ 0   │
+└─────────────┴─────────────┴─────────────┴───────────────┴─────┘
+
+```
+
 
