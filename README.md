@@ -178,7 +178,7 @@ result = pl.sql("""
     "club", 
     SUM(goals) AS Total_Goals,
     SUM(assists) AS Total_Assists,
-    SUM(goals + assists) AS G_A
+    (SUM(goals) + SUM(assists)) AS G_A
     FROM Champions_League_2022_top_stats
     GROUP BY "player_name", "club"
     ORDER BY G_A DESC
@@ -206,5 +206,8 @@ print(Club_stats)
 └─────────────┴─────────────┴─────────────┴───────────────┴─────┘
 
 ```
+
+
+
 
 
