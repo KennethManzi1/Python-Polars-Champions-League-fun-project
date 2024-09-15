@@ -133,7 +133,7 @@ shape: (747, 8)
 ```
 
 
-
+***
 
 
 ### SQL TIME IN POLARS YAYYY
@@ -255,6 +255,9 @@ shape: (32, 4)
 │ Dynamo Kyiv      ┆ 1           ┆ 1             ┆ 2   │
 ```
 - Bayern had the highest Goals and Assists contributions overall in the entire 2021-2022 season with Liverpool right behind.
+
+
+***
 
 
 
