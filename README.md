@@ -133,5 +133,39 @@ shape: (747, 8)
 ```
 
 
+**SQL TIME IN POLARS YAYYY**
+
+# SQL QUERY Test
+```Python
+result = pl.sql("""
+    SELECT "*"
+    FROM Champions_League_2022_top_stats
+    ORDER BY goals DESC
+""").collect()
+
+print(result)
+
+shape: (747, 8)
+┌─────────────┬─────────────┬────────────┬─────────────┬────────────┬───────┬─────────┬────────────┐
+│ player_name ┆ club        ┆ position   ┆ minutes_pla ┆ match_play ┆ goals ┆ assists ┆ distance_c │
+│ ---         ┆ ---         ┆ ---        ┆ yed         ┆ ed         ┆ ---   ┆ ---     ┆ overed     │
+│ str         ┆ str         ┆ str        ┆ ---         ┆ ---        ┆ i64   ┆ i64     ┆ ---        │
+│             ┆             ┆            ┆ i64         ┆ i64        ┆       ┆         ┆ str        │
+╞═════════════╪═════════════╪════════════╪═════════════╪════════════╪═══════╪═════════╪════════════╡
+│ Benzema     ┆ Real Madrid ┆ Forward    ┆ 1106        ┆ 12         ┆ 15    ┆ 1       ┆ 121.5      │
+│ Lewandowski ┆ Bayern      ┆ Forward    ┆ 876         ┆ 10         ┆ 13    ┆ 3       ┆ 99.7       │
+│ Haller      ┆ Ajax        ┆ Forward    ┆ 668         ┆ 8          ┆ 11    ┆ 1       ┆ 82.2       │
+│ Salah       ┆ Liverpool   ┆ Forward    ┆ 1008        ┆ 13         ┆ 8     ┆ 2       ┆ 112        │
+│ Mahrez      ┆ Man. City   ┆ Midfielder ┆ 986         ┆ 12         ┆ 7     ┆ 2       ┆ 120.1      │
+│ …           ┆ …           ┆ …          ┆ …           ┆ …          ┆ …     ┆ …       ┆ …          │
+│ Gil Dias    ┆ Benfica     ┆ Midfielder ┆ 1           ┆ 1          ┆ 0     ┆ 0       ┆ 0.7        │
+│ Rodrigo     ┆ Sporting CP ┆ Forward    ┆ 1           ┆ 1          ┆ 0     ┆ 0       ┆ 0.7        │
+│ Ribeiro     ┆             ┆            ┆             ┆            ┆       ┆         ┆            │
+│ Cojocari    ┆ Sheriff     ┆ Defender   ┆ 1           ┆ 1          ┆ 0     ┆ 0       ┆ 0.5        │
+│ Maouassa    ┆ Club Brugge ┆ Defender   ┆ 1           ┆ 1          ┆ 0     ┆ 0       ┆ 0.2        │
+│ Zesiger     ┆ Young Boys  ┆ Defender   ┆ 1           ┆ 1          ┆ 0     ┆ 0       ┆ 0          │
+└─────────────┴─────────────┴────────────┴─────────────┴────────────┴───────┴─────────┴────────────┘
+```
+
 
 
