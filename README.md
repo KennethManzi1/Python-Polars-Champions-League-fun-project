@@ -29,7 +29,7 @@ To learn more, read the [user guide](https://docs.pola.rs/) and [Data Camp intro
 ```
 
 
-**Champions League Top Performing Players in 2022 Data**
+**Champions League Top Performing Players in 2021-2022 Data**
 ```Python
 import polars as pl
 
@@ -73,7 +73,7 @@ shape: (176, 5)
 
 ```
 
-**Now we will loop through the champions league 2022 files and join them using the player name**
+**Now we will loop through the champions league 2021-2022 files and join them using the player name**
 
 ```Python
 CL_22 = []
@@ -136,7 +136,7 @@ shape: (747, 8)
 ### SQL TIME IN POLARS YAYYY
 
 
-**Most goals scored by players in 2022 champions legue season**
+**Most goals scored by players in 2021-2022 champions league season**
 ```Python
 ##SQL QUERY Test
 result = pl.sql("""
@@ -207,12 +207,51 @@ print(Club_stats)
 │ Taarabt     ┆ Benfica     ┆ 0           ┆ 0             ┆ 0   │
 └─────────────┴─────────────┴─────────────┴───────────────┴─────┘
 
-
-
-
 ```
+- Lewandowski and Benzema tied with 16 G_A(Goals + assists) for the 2021-2022 champions league season
 
+**Ranking the clubs with highest Total Goals and Assists**
 
+```Python
+sql_query = pl.sql("""
+    WITH TotalStats AS 
+    (
+        SELECT 
+        "club",
+        SUM(goals) AS Total_Goals,
+        SUM(assists) AS Total_Assists,
+        (SUM(goals) + SUM(assists)) AS G_A
+        FROM Champions_League_2022_top_stats
+        GROUP BY "club"
+    )
+    SELECT 
+        *,
+    FROM TotalStats
+    ORDER BY G_A DESC
+""").collect()
+
+Ranked_clubs = sql_query
+print(Ranked_clubs)
+
+shape: (32, 4)
+┌──────────────────┬─────────────┬───────────────┬─────┐
+│ club             ┆ Total_Goals ┆ Total_Assists ┆ G_A │
+│ ---              ┆ ---         ┆ ---           ┆ --- │
+│ str              ┆ i64         ┆ i64           ┆ i64 │
+╞══════════════════╪═════════════╪═══════════════╪═════╡
+│ Bayern           ┆ 30          ┆ 24            ┆ 54  │
+│ Liverpool        ┆ 28          ┆ 23            ┆ 51  │
+│ Man. City        ┆ 28          ┆ 23            ┆ 51  │
+│ Real Madrid      ┆ 28          ┆ 21            ┆ 49  │
+│ Ajax             ┆ 21          ┆ 17            ┆ 38  │
+│ …                ┆ …           ┆ …             ┆ …   │
+│ Porto            ┆ 2           ┆ 3             ┆ 5   │
+│ Shakhtar Donetsk ┆ 2           ┆ 2             ┆ 4   │
+│ Barcelona        ┆ 2           ┆ 1             ┆ 3   │
+│ Malmí_           ┆ 1           ┆ 1             ┆ 2   │
+│ Dynamo Kyiv      ┆ 1           ┆ 1             ┆ 2   │
+```
+- Bayern had the highest Goals and Assists contributions overall in the entire 2021-2022 season with Liverpool right behind.
 
 
 
