@@ -259,5 +259,8 @@ shape: (32, 4)
 
 ***
 
+### Links
 
+- [user guide](https://docs.pola.rs/)
+- [Data Camp introduction to Polars](https://www.datacamp.com/blog/an-introduction-to-polars-python-s-tool-for-large-scale-data-analysis)
 
