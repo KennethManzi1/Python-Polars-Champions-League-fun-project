@@ -135,10 +135,10 @@ shape: (747, 8)
 
 ### SQL TIME IN POLARS YAYYY
 
-**SQL QUERY Test**
 
 **Most goals scored by players in 2022 champions legue season**
 ```Python
+##SQL QUERY Test
 result = pl.sql("""
     SELECT "*"
     FROM Champions_League_2022_top_stats
