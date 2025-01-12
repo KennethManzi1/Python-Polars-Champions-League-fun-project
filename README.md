@@ -23,7 +23,7 @@ To learn more, read the [user guide](https://docs.pola.rs/) and [Data Camp intro
 ![download](https://github.com/user-attachments/assets/bef70db7-d093-4580-8a13-d6c3ac48f444)
 
 - The Champions League is an European football competition where the top 4(sometimes 5) best teams in every European football league compete against each other to win the Champions League trophy.
-- We will be taking a look at the teams in the 2021-2022 Champions League season and analyze key metrics using the Polars library.
+- We will be taking a look at the teams in the 2021-2022 Champions League season and analyze key metrics such as which team scored the most goals in that season using the Polars library.
 
 **Installing Polars**
 ```Python
