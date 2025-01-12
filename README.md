@@ -22,6 +22,8 @@ To learn more, read the [user guide](https://docs.pola.rs/) and [Data Camp intro
 ## Polars: Champions League fun project 
 ![download](https://github.com/user-attachments/assets/bef70db7-d093-4580-8a13-d6c3ac48f444)
 
+The Champions League is an European football competition where the top 4(sometimes 5) best teams in every European football league compete against each other to win the Champions League trophy.
+
 **Installing Polars**
 ```Python
 !pip install Polars
