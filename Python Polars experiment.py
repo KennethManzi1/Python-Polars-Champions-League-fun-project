@@ -67,7 +67,6 @@ print(Champions_League_2022_top_stats)
 
 # In[57]:
 
-
 ##SQL QUERY Test
 result = pl.sql("""
     SELECT "*"
@@ -79,7 +78,6 @@ print(result)
 
 
 # In[81]:
-
 
 ##SQL QUERY Club Stats
 result = pl.sql("""
@@ -98,7 +96,6 @@ print(Club_stats)
 
 
 # In[87]:
-
 
 ##Ranking the clubs with highest Total Goals and Assists
 
